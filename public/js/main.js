@@ -27,6 +27,7 @@ function contador (){
     
         var qtdCaracter = conteudo.length; 
         $("#contador-caracter").text(qtdCaracter);
+        
     });
 
 }
@@ -35,23 +36,26 @@ function contador (){
 function cronometroIniciar(){
     var tempoRestante = $("#tempo-digitacao").text();
     campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez
-    var cronometro = setInterval(function(){
-        tempoRestante--;
-        $("#tempo-digitacao").text(tempoRestante);
+        $("#botao-reiniciar").attr("disabled", true);   
+        var cronometro = setInterval(function(){
+            tempoRestante--;
+            $("#tempo-digitacao").text(tempoRestante);
 
-        if (tempoRestante <1) {
-            campoDigitacao.attr("disabled",true);
-            clearInterval(cronometro);
-        }                
-        /* if (tempo > 0) {
-            tempo--;
-            $("#tempo-digitacao").text(tempo);
-            
-        }else {
-            campoDigitacao.attr("disabled",true); 
-            $("#tempo-digitacao").text("0");
-        }*/         
+            if (tempoRestante <1) {
+                campoDigitacao.attr("disabled",true);
+                clearInterval(cronometro);
+                $("#botao-reiniciar").attr("disabled", false);
+            }
+                        
+            /* if (tempo > 0) {
+                tempo--;
+                $("#tempo-digitacao").text(tempo);
                 
+            }else {
+                campoDigitacao.attr("disabled",true); 
+                $("#tempo-digitacao").text("0");
+            }*/         
+                    
     },1000);
 });
 }
