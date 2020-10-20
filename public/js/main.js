@@ -1,30 +1,45 @@
-var frase = $(".frase").text(); //o .text retorna o conteúdo de uma tag
-var numPalavras = frase.split(" ").length;
-var tamFrase = $("#tamanho-frase");
-tamFrase.text(numPalavras);
-
+var tempoInicial = $("#tempo-digitacao").text();
 var campoDigitacao = $(".area-digitacao");  
 
-campoDigitacao.on("input",function(){
-    var conteudo = campoDigitacao.val(); // o .val retorna o valor deum input
+$(document).ready(function(){
+    atualizaTamanhoFrase()
+    contador();
+    cronometroIniciar()
+    botaoReiniciar();
 
-    var qtdPalavras = conteudo.split(/\S+/).length -1; //a expressão regular \S+ corresponde a qualquer caracter que não seja um espaço em branco repetido
-    $("#contador-palavra").text(qtdPalavras);
+})
 
-    var qtdCaracter = conteudo.length; 
-    $("#contador-caracter").text(qtdCaracter);
-});
 
+function atualizaTamanhoFrase(){
+    var frase = $(".frase").text(); //o .text retorna o conteúdo de uma tag
+    var numPalavras = frase.split(" ").length;
+    var tamFrase = $("#tamanho-frase");
+    tamFrase.text(numPalavras);
+
+}
+
+function contador (){
+    campoDigitacao.on("input",function(){
+        var conteudo = campoDigitacao.val(); // o .val retorna o valor de um input
     
+        var qtdPalavras = conteudo.split(/\S+/).length -1; //a expressão regular \S+ corresponde a qualquer caracter que não seja um espaço em branco repetido
+        $("#contador-palavra").text(qtdPalavras);
+    
+        var qtdCaracter = conteudo.length; 
+        $("#contador-caracter").text(qtdCaracter);
+    });
+
+}
 
 
-var tempo = $("#tempo-digitacao").text();
-campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez
+function cronometroIniciar(){
+    var tempoRestante = $("#tempo-digitacao").text();
+    campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez
     var cronometro = setInterval(function(){
-        tempo--;
-        $("#tempo-digitacao").text(tempo);
+        tempoRestante--;
+        $("#tempo-digitacao").text(tempoRestante);
 
-        if (tempo <1) {
+        if (tempoRestante <1) {
             campoDigitacao.attr("disabled",true);
             clearInterval(cronometro);
         }                
@@ -37,10 +52,27 @@ campoDigitacao.one("focus",function(){ //a função .one serve para chamar o eve
             $("#tempo-digitacao").text("0");
         }*/         
                 
-    },1000)
-})
+    },1000);
+});
+}
 
-console.log(tempo);
+function botaoReiniciar(){
+    $("#botao-reiniciar").click(function(){
+
+        campoDigitacao.attr("disabled", false);
+        campoDigitacao.val("");
+        $("#contador-caracter").text("0");
+        $("#contador-palavra").text("0");
+        $("#tempo-digitacao").text(tempoInicial);
+        cronometroIniciar();
+    
+    }); 
+
+}
+
+
+
+
 
  
  
