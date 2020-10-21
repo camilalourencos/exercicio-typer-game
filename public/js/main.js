@@ -45,6 +45,7 @@ function cronometroIniciar(){
                 campoDigitacao.attr("disabled",true);
                 clearInterval(cronometro);
                 $("#botao-reiniciar").attr("disabled", false);
+                campoDigitacao.addClass("campo-desativado")
             }
                         
             /* if (tempo > 0) {

@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Alura Typer</h1>
-    <p class="frase">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, esse modi blanditiis consectetur tempore iusto totam mollitia aliquid repellendus iure error minus vero nemo dolorem at a? Atque, omnis eligendi?</p>
-    <ul class="informacoes">
-        <li><span id="tamanho-frase">6</span> palavras</li>
-        <li><span id="tempo-digitacao">5</span> segundos</li>
+    <div class="container">
+        <h1 class="center">Alura Typer</h1>
+        <p class="frase center">Essa frase tem seis belas palavras</p>
+        <ul class="informacoes center">
+            <li><span id="tamanho-frase">6</span> palavras</li>
+            <li><span id="tempo-digitacao">5</span> segundos</li>
 
-    </ul>
+        </ul>
 
-    <textarea class="area-digitacao" rows="8" cols="70"></textarea>
-   
-
-    <ul>
-        <li><span id="contador-caracter">0</span> caracteres</li>
-        <li><span id="contador-palavra">0</span> palavras</li>
-    </ul>
-
-    <button id="botao-reiniciar">Reiniciar jogo</button>
+        <textarea class="area-digitacao" rows="8" cols="70"></textarea>
     
+        <ul class="center">
+            <li><span id="contador-caracter">0</span> caracteres</li>
+            <li><span id="contador-palavra">0</span> palavras</li>
+        </ul>
 
-
-
-
+        <button id="botao-reiniciar">Reiniciar jogo</button>
+    </div>
 
 
     <script src="js/jquery.js"></script>
