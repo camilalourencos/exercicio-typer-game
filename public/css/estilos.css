@@ -1,6 +1,7 @@
 .area-digitacao{
     font-size: 20px;
     height: 150px;
+    border: 3px solid black;
 
 }
 
@@ -10,4 +11,16 @@
 
 .campo-desativado{
     background-color: lightsalmon;
+}
+
+.icones{
+    vertical-align: middle;
+}
+
+.campo-correto{
+    border: 3px solid green;
+}
+
+.campo-errado{
+    border: 3px solid red;
 }

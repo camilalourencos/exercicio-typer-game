@@ -6,6 +6,7 @@ $(document).ready(function(){
     contador();
     cronometroIniciar()
     botaoReiniciar();
+    bordaDigitacao();
 
 })
 
@@ -34,9 +35,9 @@ function contador (){
 
 
 function cronometroIniciar(){
+    $("#botao-reiniciar").attr("disabled", true);
     var tempoRestante = $("#tempo-digitacao").text();
-    campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez
-        $("#botao-reiniciar").attr("disabled", true);   
+    campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez   
         var cronometro = setInterval(function(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);
@@ -45,7 +46,7 @@ function cronometroIniciar(){
                 campoDigitacao.attr("disabled",true);
                 clearInterval(cronometro);
                 $("#botao-reiniciar").attr("disabled", false);
-                campoDigitacao.addClass("campo-desativado")
+                campoDigitacao.toggleClass("campo-desativado")
             }
                         
             /* if (tempo > 0) {
@@ -61,16 +62,37 @@ function cronometroIniciar(){
 });
 }
 
+function bordaDigitacao(){
+    var frase = $(".frase").text()
+    campoDigitacao.on("input", function(){
+        var digitado = campoDigitacao.val();
+        var comparavel = frase.substr(0, digitado.length); //substring - compara o que foi um pedaço da frase com o que foi digitado.
+
+        if(digitado == comparavel){
+            campoDigitacao.addClass("campo-correto");
+            campoDigitacao.removeClass("campo-errado");
+        }else{
+            campoDigitacao.addClass("campo-errado");
+            campoDigitacao.removeClass("campo-correto");
+        }
+
+    })
+
+}
+
+
+
 function botaoReiniciar(){
     $("#botao-reiniciar").click(function(){
-
         campoDigitacao.attr("disabled", false);
         campoDigitacao.val("");
         $("#contador-caracter").text("0");
         $("#contador-palavra").text("0");
         $("#tempo-digitacao").text(tempoInicial);
         cronometroIniciar();
-    
+        campoDigitacao.toggleClass("campo-desativado");
+        campoDigitacao.removeClass("campo-errado");
+        campoDigitacao.removeClass("campo-correto");
     }); 
 
 }
