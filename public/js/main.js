@@ -10,7 +10,6 @@ $(document).ready(function(){
 
 })
 
-
 function atualizaTamanhoFrase(){
     var frase = $(".frase").text(); //o .text retorna o conteúdo de uma tag
     var numPalavras = frase.split(" ").length;
@@ -32,7 +31,6 @@ function contador (){
     });
 
 }
-
 
 function cronometroIniciar(){
     $("#botao-reiniciar").attr("disabled", true);
@@ -86,44 +84,6 @@ function bordaDigitacao(){
 
 }
 
-function inserePlacar (){
-    var corpoTabela = $(".placar").find("tbody");
-    var usuario =  "Camila"
-    var numeroPalavras = $("#contador-palavra").text();  
-
-    var linha = novaLinha(usuario, numeroPalavras);
-
-    linha.find(".botao-remover").click(removeLinha);
-
-    corpoTabela.prepend(linha);
-}
-
-function novaLinha(usuario, palavras){
-    var linha = $("<tr>");
-    var colunaUsuario = $("<td>").text(usuario);
-    var colunaPalavras = $("<td>").text(palavras);
-    var colunaRemover = $("<td>");
-    var link = $("<a>").addClass("botao-remover").attr("href","#")
-    var icone = $("<i>").addClass("small").addClass("material-icons").text("delete");
-
-    link.append(icone);
-    colunaRemover.append(link);
-
-    linha.append(colunaUsuario);
-    linha.append(colunaPalavras);
-    linha.append(colunaRemover);
-    
-    return linha;
-
-}
-
-function removeLinha (event){
-        event.preventDefault();
-        $(this).parent().parent().remove();
-}  
-
-
-
 function botaoReiniciar(){
     $("#botao-reiniciar").click(function(){
         campoDigitacao.attr("disabled", false);
@@ -136,7 +96,6 @@ function botaoReiniciar(){
         campoDigitacao.removeClass("campo-errado");
         campoDigitacao.removeClass("campo-correto");
     }); 
-
 }
 
 
