@@ -2,9 +2,9 @@ var tempoInicial = $("#tempo-digitacao").text();
 var campoDigitacao = $(".area-digitacao");  
 
 $(document).ready(function(){
-    atualizaTamanhoFrase()
+    atualizaTamanhoFrase();
     contador();
-    cronometroIniciar()
+    cronometroIniciar();
     botaoReiniciar();
     bordaDigitacao();
 
@@ -62,7 +62,7 @@ function cronometroIniciar(){
 function finalizaJogo(){
     campoDigitacao.attr("disabled",true);
     $("#botao-reiniciar").attr("disabled", false);
-    campoDigitacao.toggleClass("campo-desativado")
+    campoDigitacao.toggleClass("campo-desativado");
     inserePlacar();
 }
 
@@ -93,7 +93,7 @@ function botaoReiniciar(){
         $("#contador-palavra").text("0");
         $("#tempo-digitacao").text(tempoInicial);
         cronometroIniciar();
-        campoDigitacao.toggleClass("campo-desativado");
+        campoDigitacao.removeClass("campo-desativado");
         campoDigitacao.removeClass("campo-errado");
         campoDigitacao.removeClass("campo-correto");
     }); 
