@@ -33,9 +33,9 @@ function contador (){
 }
 
 function cronometroIniciar(){
-    $("#botao-reiniciar").attr("disabled", true);
     var tempoRestante = $("#tempo-digitacao").text();
     campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez   
+        $("#botao-reiniciar").attr("disabled", true);
         var cronometro = setInterval(function(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);
