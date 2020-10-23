@@ -86,6 +86,7 @@ function bordaDigitacao(){
 
 function botaoReiniciar(){
     $("#botao-reiniciar").click(function(){
+        $(".placar").remove();
         campoDigitacao.attr("disabled", false);
         campoDigitacao.val("");
         $("#contador-caracter").text("0");

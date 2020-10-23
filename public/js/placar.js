@@ -6,12 +6,14 @@ function inserePlacar (){
     var corpoTabela = $(".placar").find("tbody");
     var usuario =  "Camila"
     var numeroPalavras = $("#contador-palavra").text();  
-
     var linha = novaLinha(usuario, numeroPalavras);
 
     linha.find(".botao-remover").click(removeLinha);
 
     corpoTabela.prepend(linha);
+    $(".placar").slideDown(500);
+    scrollPlacar();
+
 }
 
 function novaLinha(usuario, palavras){
@@ -43,5 +45,13 @@ function removeLinha (event){
 }  
 
 function mostrarPlacar(){
-    $(".placar").slideDown(700); //o elemento aparece com mais suavidade
+    $(".placar").stop().slideToggle(700); //o elemento aparece com mais suavidade
+}
+
+function scrollPlacar(){
+    var posicaoPlacar = $(".placar").offset().top;
+    $("html, body").animate(
+        {
+            scrollTop: posicaoPlacar
+        }, 1000)
 }
