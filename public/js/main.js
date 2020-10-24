@@ -86,7 +86,6 @@ function bordaDigitacao(){
 
 function botaoReiniciar(){
     $("#botao-reiniciar").click(function(){
-        $(".placar").remove();
         campoDigitacao.attr("disabled", false);
         campoDigitacao.val("");
         $("#contador-caracter").text("0");
@@ -96,6 +95,7 @@ function botaoReiniciar(){
         campoDigitacao.removeClass("campo-desativado");
         campoDigitacao.removeClass("campo-errado");
         campoDigitacao.removeClass("campo-correto");
+        $(".placar").stop().slideToggle(700);
     }); 
 }
 

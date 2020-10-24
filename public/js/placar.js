@@ -6,11 +6,12 @@ function inserePlacar (){
     var corpoTabela = $(".placar").find("tbody");
     var usuario =  "Camila"
     var numeroPalavras = $("#contador-palavra").text();  
-    var linha = novaLinha(usuario, numeroPalavras);
 
+    var linha = novaLinha(usuario, numeroPalavras);
     linha.find(".botao-remover").click(removeLinha);
 
     corpoTabela.prepend(linha);
+    
     $(".placar").slideDown(500);
     scrollPlacar();
 
