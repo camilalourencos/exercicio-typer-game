@@ -46,3 +46,8 @@ body{
     width: 40px;
     min: 0;
 }
+
+#botao-sync{
+    float:right;
+    
+}
