@@ -19,6 +19,7 @@ function atualizaTamanhoFrase(){
 }
 
 function atualizaTempoInicial (tempo){  
+    tempoInicial = tempo;
     $("#tempo-digitacao").text(tempo);
 }
 
@@ -37,8 +38,8 @@ function contador (){
 }
 
 function cronometroIniciar(){
-    var tempoRestante = $("#tempo-digitacao").text();
-    campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez   
+    campoDigitacao.one("focus",function(){ //a função .one serve para chamar o evento apenas uma vez  
+        var tempoRestante = $("#tempo-digitacao").text(); 
         $("#botao-reiniciar").attr("disabled", true);
         var cronometro = setInterval(function(){
             tempoRestante--;
@@ -71,8 +72,8 @@ function finalizaJogo(){
 }
 
 function bordaDigitacao(){
-    var frase = $(".frase").text()
     campoDigitacao.on("input", function(){
+        var frase = $(".frase").text();
         var digitado = campoDigitacao.val();
         var comparavel = frase.substr(0, digitado.length); //substring - compara o que foi um pedaço da frase com o que foi digitado.
 
