@@ -11,4 +11,7 @@ $("#botao-frase").click(fraseAleatoria)
          
         frase.text(data[numeroAleatorio].texto);
 
+        atualizaTamanhoFrase();
+
+        atualizaTempoInicial(data[numeroAleatorio].tempo);
    };

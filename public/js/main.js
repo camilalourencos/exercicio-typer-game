@@ -18,6 +18,10 @@ function atualizaTamanhoFrase(){
 
 }
 
+function atualizaTempoInicial (tempo){  
+    $("#tempo-digitacao").text(tempo);
+}
+
 function contador (){
     campoDigitacao.on("input",function(){
         var conteudo = campoDigitacao.val(); // o .val retorna o valor de um input
