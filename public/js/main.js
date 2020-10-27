@@ -7,6 +7,7 @@ $(document).ready(function(){
     cronometroIniciar();
     botaoReiniciar();
     bordaDigitacao();
+    novoJogador();
 
 })
 

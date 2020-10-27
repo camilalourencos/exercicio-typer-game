@@ -9,7 +9,7 @@ $("#botao-sync").click(function(){
 
 function inserePlacar (){
     var corpoTabela = $(".placar").find("tbody");
-    var usuario =  "Camila"
+    var usuario =  $("#usuarios").val();
     var numeroPalavras = $("#contador-palavra").text();  
 
     var linha = novaLinha(usuario, numeroPalavras);
@@ -95,3 +95,12 @@ function atualizaPlacar(){
         
     });
 }
+
+function novoJogador(){
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    });
+}
+
+
