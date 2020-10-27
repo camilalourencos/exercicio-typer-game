@@ -1,5 +1,6 @@
 $("#botao-placar").click(function(){
     mostrarPlacar();
+    atualizaPlacar()
 })
 
 $("#botao-sync").click(function(){
@@ -82,4 +83,15 @@ function sincronizarPlacar(){
      $.post("http://localhost:3000/placar",dados,function(){
         console.log("salvou os dados no servidor");
      })
+}
+
+function atualizaPlacar(){
+    $.get("http://localhost:3000/placar",function(data){
+        $(data).each(function(){
+            var linha= novaLinha(this.usuario, this.pontos);
+            linha.find(".botao-remover").click(removeLinha);
+            $("tbody").append(linha);
+        });
+        
+    });
 }
