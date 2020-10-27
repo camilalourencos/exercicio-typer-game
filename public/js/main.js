@@ -8,6 +8,10 @@ $(document).ready(function(){
     botaoReiniciar();
     bordaDigitacao();
     novoJogador();
+    $('.tooltip').tooltipster({
+        trigger: "custom"
+    });
+
 
 })
 
